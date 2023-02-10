@@ -5,6 +5,10 @@ androidDesugarJdkLibs = "1.2.2"
 androidxCore = "1.9.0"
 androidxAppcompat = "1.6.1"
 androidMaterial = "1.8.0"
+androidxFragment = "1.5.5"
+androidxNavigation = "2.5.3"
+hilt = "2.44.2"
+androidxLifecycle = "2.5.1"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -13,8 +17,16 @@ android-desugarJdkLibs = { module = "com.android.tools:desugar_jdk_libs", versio
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
 android-material = { module = "com.google.android.material:material", version.ref = "androidMaterial" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragment" }
+androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-androidCompiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidx-navigation = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

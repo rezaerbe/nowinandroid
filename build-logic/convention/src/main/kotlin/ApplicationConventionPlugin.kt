@@ -14,6 +14,8 @@ class ApplicationConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
+                apply("nowinandroid.android.fragment")
+                apply("nowinandroid.android.hilt")
             }
 
             extensions.configure<ApplicationExtension> {
