@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "965648085780",
+    "project_id": "nowinandroid-r12b13",
+    "storage_bucket": "nowinandroid-r12b13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965648085780:android:3541d1c65b9e18ece58801",
+        "android_client_info": {
+          "package_name": "com.erbe.nowinandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965648085780-71nh628ip2pkjsf5eblmtd9cdmqiets7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erbe.nowinandroid",
+            "certificate_hash": "b551fbbc2364c41490f750780514f7f9a588f0ac"
+          }
+        },
+        {
+          "client_id": "965648085780-5m2lje4a87me9ufls50npkgemdv26kiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeMHAoy_B584IXPB8OTEPJ86uSX0dt_B4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965648085780-5m2lje4a87me9ufls50npkgemdv26kiu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

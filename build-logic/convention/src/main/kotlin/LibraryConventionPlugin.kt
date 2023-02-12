@@ -1,6 +1,5 @@
 import com.android.build.api.dsl.LibraryExtension
 import com.erbe.nowinandroid.configureAndroid
-import com.erbe.nowinandroid.configureView
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -16,7 +15,6 @@ class LibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureAndroid(this)
-                configureView(this)
             }
         }
     }

@@ -4,14 +4,28 @@ import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
 
 sealed interface DataState<out T> {
     data class Success<T>(val data: T) : DataState<T>
     data class Error(val exception: Throwable? = null) : DataState<Nothing>
     object Loading : DataState<Nothing>
+}
+
+suspend fun <T> MutableStateFlow<DataState<T>>.asDataState(
+    action: suspend () -> T
+) {
+    this.update { DataState.Loading }
+    try {
+        val data = action()
+        this.update { DataState.Success(data) }
+    } catch (error: Throwable) {
+        this.update { DataState.Error(error) }
+    }
 }
 
 fun <T> Flow<T>.asDataState(): Flow<DataState<T>> {

@@ -2,11 +2,11 @@
 
 plugins {
     id("nowinandroid.android.application")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
     namespace = "com.erbe.nowinandroid"
-    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.erbe.nowinandroid"
@@ -78,7 +78,15 @@ android {
 
 dependencies {
 
+    implementation(project(":core:common"))
     implementation(project(":core:design"))
+
+    implementation(project(":feature:article"))
+
+    implementation(platform("com.google.firebase:firebase-bom:31.2.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-config-ktx")
 }
 
 kapt {

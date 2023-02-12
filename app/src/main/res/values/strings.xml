@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- google-services.json -->
+    <string name="default_web_client_id" translatable="false">965648085780-5m2lje4a87me9ufls50npkgemdv26kiu.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">965648085780</string>
+    <string name="google_api_key" translatable="false">AIzaSyBeMHAoy_B584IXPB8OTEPJ86uSX0dt_B4</string>
+    <string name="google_app_id" translatable="false">1:965648085780:android:3541d1c65b9e18ece58801</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBeMHAoy_B584IXPB8OTEPJ86uSX0dt_B4</string>
+    <string name="google_storage_bucket" translatable="false">nowinandroid-r12b13.appspot.com</string>
+    <string name="project_id" translatable="false">nowinandroid-r12b13</string>
+</resources>

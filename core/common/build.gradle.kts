@@ -1,5 +1,5 @@
 plugins {
-    id("nowinandroid.android.library")
+    id("nowinandroid.android.library.view")
 }
 
 android {
@@ -9,4 +9,10 @@ android {
 dependencies {
 
     implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.moshi)
+    kapt(libs.moshi.codegen)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converterMoshi)
+    implementation(libs.okhttp)
+    implementation(libs.chucker)
 }
