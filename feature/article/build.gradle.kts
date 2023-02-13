@@ -10,7 +10,6 @@ dependencies {
 
     implementation(project(":core:common"))
     implementation(project(":core:design"))
-    implementation(project(":core:firebase"))
 
     implementation(project(":data:article"))
 }
