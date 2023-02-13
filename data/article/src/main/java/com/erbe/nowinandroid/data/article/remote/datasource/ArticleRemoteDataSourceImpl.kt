@@ -27,7 +27,8 @@ class ArticleRemoteDataSourceImpl @Inject constructor(
             } else {
                 val errorResponse = response.errorBody()?.string()
                 try {
-                    val errorModel = serialize<ErrorResponse>(moshi, errorResponse!!)!!
+                    val errorModel =
+                        errorResponse?.let { error -> serialize<ErrorResponse>(moshi, error) }!!
                     throw CustomException(errorModel.code, errorModel.message)
                 } catch (error: Throwable) {
                     throw CustomException(response.code(), response.message())
