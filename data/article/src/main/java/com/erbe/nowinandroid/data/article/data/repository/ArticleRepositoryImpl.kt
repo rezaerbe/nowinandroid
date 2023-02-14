@@ -2,7 +2,7 @@ package com.erbe.nowinandroid.data.article.data.repository
 
 import com.erbe.nowinandroid.core.common.dispatcher.AppDispatcher
 import com.erbe.nowinandroid.core.common.dispatcher.Dispatcher
-import com.erbe.nowinandroid.core.common.network.model.CustomException
+import com.erbe.nowinandroid.core.common.network.model.EmptyException
 import com.erbe.nowinandroid.data.article.data.model.Article
 import com.erbe.nowinandroid.data.article.data.model.asExternalModel
 import com.erbe.nowinandroid.data.article.network.datasource.ArticleRemoteDataSource
@@ -24,7 +24,7 @@ class ArticleRepositoryImpl @Inject constructor(
                     null
                 }
             }.ifEmpty {
-                throw CustomException(404, "Not Found")
+                throw EmptyException("Empty")
             }
         }
 }

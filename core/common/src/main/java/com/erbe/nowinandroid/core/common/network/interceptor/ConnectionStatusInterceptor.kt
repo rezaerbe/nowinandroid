@@ -1,9 +1,9 @@
 package com.erbe.nowinandroid.core.common.network.interceptor
 
 import com.erbe.nowinandroid.core.common.network.connection.ConnectionManager
+import com.erbe.nowinandroid.core.common.network.model.NetworkException
 import okhttp3.Interceptor
 import okhttp3.Response
-import okio.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -16,7 +16,7 @@ class ConnectionStatusInterceptor @Inject constructor(
         return if (connectionManager.isConnected()) {
             chain.proceed(chain.request())
         } else {
-            throw IOException("No network available")
+            throw NetworkException("Connection error")
         }
     }
 }

@@ -7,7 +7,6 @@ import com.chuckerteam.chucker.api.RetentionManager
 import com.erbe.nowinandroid.core.common.network.connection.ConnectionManager
 import com.erbe.nowinandroid.core.common.network.connection.ConnectionManagerImpl
 import com.erbe.nowinandroid.core.common.network.interceptor.ConnectionStatusInterceptor
-import com.squareup.moshi.Moshi
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -29,12 +28,6 @@ abstract class NetworkModule {
     ): ConnectionManager
 
     companion object {
-        @Singleton
-        @Provides
-        fun provideMoshi(): Moshi {
-            return Moshi.Builder().build()
-        }
-
         @Singleton
         @Provides
         fun provideChuckerInterceptor(
