@@ -1,12 +1,12 @@
-package com.erbe.nowinandroid.data.article.remote.datasource
+package com.erbe.nowinandroid.data.article.network.datasource
 
 import com.erbe.nowinandroid.core.common.dispatcher.AppDispatcher
 import com.erbe.nowinandroid.core.common.dispatcher.Dispatcher
 import com.erbe.nowinandroid.core.common.extension.serialize
 import com.erbe.nowinandroid.core.common.network.model.CustomException
 import com.erbe.nowinandroid.core.common.network.model.ErrorResponse
-import com.erbe.nowinandroid.data.article.remote.model.ArticleResponse
-import com.erbe.nowinandroid.data.article.remote.service.ArticleService
+import com.erbe.nowinandroid.data.article.network.model.ArticleResponse
+import com.erbe.nowinandroid.data.article.network.service.ArticleService
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext

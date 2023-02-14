@@ -1,9 +1,9 @@
-package com.erbe.nowinandroid.data.article.repository
+package com.erbe.nowinandroid.data.article.data.repository
 
 import com.erbe.nowinandroid.core.common.network.model.CustomException
-import com.erbe.nowinandroid.data.article.model.Article
-import com.erbe.nowinandroid.data.article.model.asExternalModel
-import com.erbe.nowinandroid.data.article.remote.datasource.ArticleRemoteDataSource
+import com.erbe.nowinandroid.data.article.data.model.Article
+import com.erbe.nowinandroid.data.article.data.model.asExternalModel
+import com.erbe.nowinandroid.data.article.network.datasource.ArticleRemoteDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

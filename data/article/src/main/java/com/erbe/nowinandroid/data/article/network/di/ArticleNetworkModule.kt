@@ -1,10 +1,8 @@
-package com.erbe.nowinandroid.data.article.di
+package com.erbe.nowinandroid.data.article.network.di
 
-import com.erbe.nowinandroid.data.article.remote.datasource.ArticleRemoteDataSource
-import com.erbe.nowinandroid.data.article.remote.datasource.ArticleRemoteDataSourceImpl
-import com.erbe.nowinandroid.data.article.remote.service.ArticleService
-import com.erbe.nowinandroid.data.article.repository.ArticleRepository
-import com.erbe.nowinandroid.data.article.repository.ArticleRepositoryImpl
+import com.erbe.nowinandroid.data.article.network.datasource.ArticleRemoteDataSource
+import com.erbe.nowinandroid.data.article.network.datasource.ArticleRemoteDataSourceImpl
+import com.erbe.nowinandroid.data.article.network.service.ArticleService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -15,17 +13,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class ArticleModule {
+abstract class ArticleNetworkModule {
 
     @Binds
     abstract fun bindArticleRemoteDataSource(
         articleRemoteDataSourceImpl: ArticleRemoteDataSourceImpl
     ): ArticleRemoteDataSource
-
-    @Binds
-    abstract fun bindArticleRepository(
-        articleRepositoryImpl: ArticleRepositoryImpl
-    ): ArticleRepository
 
     companion object {
         @Singleton

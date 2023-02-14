@@ -1,4 +1,4 @@
-package com.erbe.nowinandroid.data.article.remote.model
+package com.erbe.nowinandroid.data.article.network.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

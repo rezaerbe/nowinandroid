@@ -1,6 +1,6 @@
-package com.erbe.nowinandroid.data.article.model
+package com.erbe.nowinandroid.data.article.data.model
 
-import com.erbe.nowinandroid.data.article.remote.model.ArticleResponse
+import com.erbe.nowinandroid.data.article.network.model.ArticleResponse
 
 data class Article(
     val id: String,

@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erbe.nowinandroid.core.common.extension.DataState
 import com.erbe.nowinandroid.core.common.extension.asDataState
-import com.erbe.nowinandroid.data.article.model.Article
-import com.erbe.nowinandroid.data.article.repository.ArticleRepository
+import com.erbe.nowinandroid.data.article.data.model.Article
+import com.erbe.nowinandroid.data.article.data.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
