@@ -1,6 +1,5 @@
-package com.erbe.nowinandroid.core.common.network.util
+package com.erbe.nowinandroid.core.common.extension
 
-import com.erbe.nowinandroid.core.common.extension.serialize
 import com.erbe.nowinandroid.core.common.network.model.ApiException
 import com.erbe.nowinandroid.core.common.network.model.EmptyException
 import com.erbe.nowinandroid.core.common.network.model.ErrorResponse
@@ -12,16 +11,16 @@ import retrofit2.HttpException
 
 suspend fun <T> safeApiCall(
     dispatcher: CoroutineDispatcher,
-    apiCall: suspend () -> T
+    apiCall: suspend () -> T?
 ): T {
     return withContext(dispatcher) {
         try {
-            apiCall()
+            apiCall() ?: throw EmptyException("Null")
         } catch (error: Throwable) {
             when (error) {
                 is HttpException -> {
                     if (error.code() == 404) {
-                        throw EmptyException("Not Found")
+                        throw EmptyException(error.message())
                     } else {
                         val errorResponse = error.response()?.errorBody()?.string()
                         val errorModel = errorResponse?.let { response ->

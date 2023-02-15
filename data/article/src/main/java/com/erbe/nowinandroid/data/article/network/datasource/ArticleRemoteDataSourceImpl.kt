@@ -2,8 +2,7 @@ package com.erbe.nowinandroid.data.article.network.datasource
 
 import com.erbe.nowinandroid.core.common.dispatcher.AppDispatcher
 import com.erbe.nowinandroid.core.common.dispatcher.Dispatcher
-import com.erbe.nowinandroid.core.common.network.model.EmptyException
-import com.erbe.nowinandroid.core.common.network.util.safeApiCall
+import com.erbe.nowinandroid.core.common.extension.safeApiCall
 import com.erbe.nowinandroid.data.article.network.model.ArticleResponse
 import com.erbe.nowinandroid.data.article.network.service.ArticleService
 import kotlinx.coroutines.CoroutineDispatcher
@@ -16,6 +15,11 @@ class ArticleRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getArticles(): List<ArticleResponse> =
         safeApiCall(ioDispatcher) {
-            articleService.getArticles().data?.items ?: throw EmptyException("Null")
+            articleService.getArticles().data?.items
+        }
+
+    override suspend fun getArticleDetail(id: String): ArticleResponse =
+        safeApiCall(ioDispatcher) {
+            articleService.getArticleDetail(id).data
         }
 }

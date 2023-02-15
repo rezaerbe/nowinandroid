@@ -17,7 +17,7 @@ class ArticleViewModel @Inject constructor(
     private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
-    private val _articleState = MutableStateFlow<DataState<List<Article>?>>(DataState.Loading)
+    private val _articleState = MutableStateFlow<DataState<List<Article>>>(DataState.Loading)
     val articleState = _articleState.asStateFlow()
 
     init {

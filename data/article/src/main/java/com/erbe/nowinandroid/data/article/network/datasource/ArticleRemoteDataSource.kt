@@ -5,4 +5,5 @@ import com.erbe.nowinandroid.data.article.network.model.ArticleResponse
 interface ArticleRemoteDataSource {
 
     suspend fun getArticles(): List<ArticleResponse>
+    suspend fun getArticleDetail(id: String): ArticleResponse
 }

@@ -12,7 +12,7 @@ fun handleApiError(
     error: HttpException
 ): Throwable {
     return if (error.code() == 404) {
-        EmptyException("Not Found")
+        EmptyException(error.message())
     } else {
         val errorResponse = error.response()?.errorBody()?.string()
         val errorModel = errorResponse?.let { response ->
