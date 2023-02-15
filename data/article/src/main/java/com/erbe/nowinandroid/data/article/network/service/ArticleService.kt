@@ -7,6 +7,6 @@ import retrofit2.http.GET
 
 interface ArticleService {
 
-    @GET("/articles")
+    @GET("/article")
     suspend fun getArticles(): NetworkResponse<Items<ArticleResponse>>
 }

@@ -1,4 +1,4 @@
-package com.erbe.nowinandroid.core.common.network.util
+package com.erbe.nowinandroid.core.common.network.calladapter
 
 import retrofit2.Call
 import retrofit2.CallAdapter

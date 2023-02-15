@@ -43,33 +43,3 @@ suspend fun <T> safeApiCall(
         }
     }
 }
-
-fun handleApiError(
-    error: HttpException
-): Throwable {
-    return if (error.code() == 404) {
-        EmptyException("Not Found")
-    } else {
-        val errorResponse = error.response()?.errorBody()?.string()
-        val errorModel = errorResponse?.let { response ->
-            serialize<ErrorResponse>(response)
-        }
-        ApiException(
-            errorModel?.code ?: error.code(),
-            errorModel?.message ?: error.message()
-        )
-    }
-}
-
-fun handleNetworkError(
-    error: Throwable
-): Throwable {
-    return when (error) {
-        is IOException -> {
-            NetworkException(error.message ?: "Connection error")
-        }
-        else -> {
-            error
-        }
-    }
-}
