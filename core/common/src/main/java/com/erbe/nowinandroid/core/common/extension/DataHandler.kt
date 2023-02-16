@@ -13,7 +13,7 @@ suspend fun <T> safeDataCall(
         try {
             dataCall()
         } catch (error: Throwable) {
-            throw DataException(error.message ?: "Map error")
+            throw DataException(error.message ?: "Data error")
         }
     }
 }
@@ -37,6 +37,6 @@ fun <T, U> List<T>.mapSafe(
             null
         }
     }.ifEmpty {
-        throw EmptyException("Map error")
+        throw EmptyException("Data null")
     }
 }

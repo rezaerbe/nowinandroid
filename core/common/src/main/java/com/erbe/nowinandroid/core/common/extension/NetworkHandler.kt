@@ -15,7 +15,7 @@ suspend fun <T> safeApiCall(
 ): T {
     return withContext(dispatcher) {
         try {
-            apiCall() ?: throw EmptyException("Null")
+            apiCall() ?: throw EmptyException("Network null")
         } catch (error: Throwable) {
             when (error) {
                 is HttpException -> {

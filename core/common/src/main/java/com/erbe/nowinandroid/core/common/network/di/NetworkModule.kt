@@ -63,7 +63,7 @@ abstract class NetworkModule {
         @Provides
         fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
             return Retrofit.Builder()
-                .baseUrl("http://192.168.45.125:8080")
+                .baseUrl("http://192.168.45.125:8080/")
                 .client(okHttpClient)
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()

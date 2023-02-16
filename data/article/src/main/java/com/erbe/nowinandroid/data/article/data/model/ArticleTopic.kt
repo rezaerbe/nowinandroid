@@ -4,6 +4,7 @@ import com.erbe.nowinandroid.data.article.network.model.ArticleTopicResponse
 
 data class ArticleTopic(
     val id: String,
+    val tag: String,
     val name: String,
     val description: String,
     val image: String,
@@ -13,6 +14,7 @@ data class ArticleTopic(
 
 fun ArticleTopicResponse.asExternalModel() = ArticleTopic(
     id!!,
+    tag!!,
     name!!,
     description!!,
     image!!,

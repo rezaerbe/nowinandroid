@@ -7,6 +7,8 @@ import com.squareup.moshi.JsonClass
 data class ArticleTopicResponse(
     @field:Json(name = "id")
     val id: String?,
+    @field:Json(name = "tag")
+    val tag: String?,
     @field:Json(name = "name")
     val name: String?,
     @field:Json(name = "description")
