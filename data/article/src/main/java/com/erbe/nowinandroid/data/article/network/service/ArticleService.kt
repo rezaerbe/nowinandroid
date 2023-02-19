@@ -2,7 +2,8 @@ package com.erbe.nowinandroid.data.article.network.service
 
 import com.erbe.nowinandroid.core.common.network.model.Items
 import com.erbe.nowinandroid.core.common.network.model.NetworkResponse
-import com.erbe.nowinandroid.data.article.network.model.ArticleResponse
+import com.erbe.nowinandroid.data.article.network.model.ArticleContentTopicResponse
+import com.erbe.nowinandroid.data.article.network.model.ArticleTopicContentResponse
 import com.erbe.nowinandroid.data.article.network.model.ArticleTopicResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -10,26 +11,24 @@ import retrofit2.http.Path
 interface ArticleService {
 
     @GET("article")
-    suspend fun getArticles(): NetworkResponse<Items<ArticleResponse>>
+    suspend fun getArticles(): NetworkResponse<Items<ArticleContentTopicResponse>>
 
     @GET("article/latest")
-    suspend fun getArticleLatest(): NetworkResponse<Items<ArticleResponse>>
+    suspend fun getArticleLatest(): NetworkResponse<Items<ArticleContentTopicResponse>>
 
-    @GET("tag/{category}")
+    @GET("article/tag/{category}")
     suspend fun getArticleByCategory(
         @Path("category") category: String
-    ): NetworkResponse<Items<ArticleResponse>>
+    ): NetworkResponse<ArticleTopicContentResponse>
 
-    @GET("tag/{category}/latest")
-    suspend fun getArticleByCategoryLatest(
-        @Path("category") category: String
-    ): NetworkResponse<Items<ArticleResponse>>
+    @GET("article/tag/latest")
+    suspend fun getArticleByCategoryLatest(): NetworkResponse<Items<ArticleTopicContentResponse>>
 
     @GET("article/{id}")
     suspend fun getArticleDetail(
         @Path("id") id: String
-    ): NetworkResponse<ArticleResponse>
+    ): NetworkResponse<ArticleContentTopicResponse>
 
-    @GET("tag")
+    @GET("article/tag")
     suspend fun getArticleTag(): NetworkResponse<Items<ArticleTopicResponse>>
 }

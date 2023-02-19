@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erbe.nowinandroid.core.common.extension.DataState
 import com.erbe.nowinandroid.core.common.extension.asDataState
-import com.erbe.nowinandroid.data.article.data.model.Article
+import com.erbe.nowinandroid.data.article.data.model.ArticleContentTopic
 import com.erbe.nowinandroid.data.article.data.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +19,8 @@ class DetailArticleViewModel @Inject constructor(
     private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
-    private val _articleDetailState = MutableStateFlow<DataState<Article>>(DataState.Loading)
+    private val _articleDetailState =
+        MutableStateFlow<DataState<ArticleContentTopic>>(DataState.Loading)
     val articleDetailState = _articleDetailState.asStateFlow()
 
     init {

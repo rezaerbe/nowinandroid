@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.getByType
 
 @Suppress("UnstableApiUsage")
 internal fun Project.configureView(
-    commonExtension: CommonExtension<*, *, *, *>,
+    commonExtension: CommonExtension<*, *, *, *>
 ) {
     commonExtension.apply {
         buildFeatures {

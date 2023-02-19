@@ -4,8 +4,11 @@ import com.erbe.nowinandroid.core.common.network.model.ApiException
 import com.erbe.nowinandroid.core.common.network.model.EmptyException
 import com.erbe.nowinandroid.core.common.network.model.ErrorResponse
 import com.erbe.nowinandroid.core.common.network.model.NetworkException
+import com.erbe.nowinandroid.core.common.network.model.ParsingException
+import com.squareup.moshi.JsonDataException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
+import okio.EOFException
 import okio.IOException
 import retrofit2.HttpException
 
@@ -31,6 +34,9 @@ suspend fun <T> safeApiCall(
                             errorModel?.message ?: error.message()
                         )
                     }
+                }
+                is EOFException, is JsonDataException -> {
+                    throw ParsingException(error.message ?: "Parsing error")
                 }
                 is IOException -> {
                     throw NetworkException(error.message ?: "Connection error")

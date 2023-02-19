@@ -12,12 +12,13 @@ data class ArticleTopic(
     val url: String
 )
 
-fun ArticleTopicResponse.asExternalModel() = ArticleTopic(
-    id!!,
-    tag!!,
-    name!!,
-    description!!,
-    image!!,
-    total!!,
-    url!!
-)
+fun ArticleTopicResponse.asExternalModel() =
+    ArticleTopic(
+        id!!,
+        tag!!,
+        name!!,
+        description!!,
+        image!!,
+        total!!,
+        url!!
+    )

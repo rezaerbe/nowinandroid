@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erbe.nowinandroid.core.common.extension.DataState
 import com.erbe.nowinandroid.core.common.extension.asDataState
-import com.erbe.nowinandroid.data.article.data.model.Article
+import com.erbe.nowinandroid.data.article.data.model.ArticleTopicContent
 import com.erbe.nowinandroid.data.article.data.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +20,7 @@ class ListCategoryViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _articleCategoryState =
-        MutableStateFlow<DataState<List<Article>>>(DataState.Loading)
+        MutableStateFlow<DataState<ArticleTopicContent>>(DataState.Loading)
     val articleCategoryState = _articleCategoryState.asStateFlow()
 
     init {
@@ -30,8 +30,7 @@ class ListCategoryViewModel @Inject constructor(
     private fun getArticleByCategory() {
         viewModelScope.launch {
             _articleCategoryState.asDataState {
-                val category =
-                    savedStateHandle.get<String>("category")
+                val category = savedStateHandle.get<String>("category")
                 articleRepository.getArticleByCategory(category)
             }
         }
