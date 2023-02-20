@@ -6,7 +6,10 @@ import androidx.fragment.app.viewModels
 import com.erbe.nowinandroid.core.common.base.BaseFragment
 import com.erbe.nowinandroid.core.common.extension.launchAndCollectIn
 import com.erbe.nowinandroid.core.common.extension.process
+import com.erbe.nowinandroid.core.design.generateConstraintView
 import com.erbe.nowinandroid.feature.article.databinding.FragmentArticleBinding
+import com.erbe.nowinandroid.feature.article.home.view.ArticleCategoryLatestView
+import com.erbe.nowinandroid.feature.article.home.view.ArticleLatestView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,18 +25,18 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>(FragmentArticleBind
     }
 
     private fun sectionArticle() {
-        // Fetch data
-        articleViewModel.getArticleLatest()
-        // Observe data
+        val articleLatestView = ArticleLatestView(requireContext())
+        generateConstraintView(binding.articleContainer, articleLatestView)
+
         articleViewModel.articleState.launchAndCollectIn(viewLifecycleOwner) { articleState ->
             articleState.process { }
         }
     }
 
     private fun sectionCategoryArticle() {
-        // Fetch data
-        articleViewModel.getArticleByCategoryLatest()
-        // Observe data
+        val articleCategoryLatestView = ArticleCategoryLatestView(requireContext())
+        generateConstraintView(binding.articleContainer, articleCategoryLatestView)
+
         articleViewModel.articleCategoryState.launchAndCollectIn(viewLifecycleOwner) { articleCategoryState ->
             articleCategoryState.process { }
         }

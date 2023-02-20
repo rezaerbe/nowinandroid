@@ -26,7 +26,12 @@ class ArticleViewModel @Inject constructor(
         MutableStateFlow<DataState<List<ArticleTopicContent>>>(DataState.Loading)
     val articleCategoryState = _articleCategoryState.asStateFlow()
 
-    fun getArticleLatest() {
+    init {
+        getArticleLatest()
+        getArticleByCategoryLatest()
+    }
+
+    private fun getArticleLatest() {
         viewModelScope.launch {
             _articleState.asDataState {
                 articleRepository.getArticleLatest()
@@ -34,7 +39,7 @@ class ArticleViewModel @Inject constructor(
         }
     }
 
-    fun getArticleByCategoryLatest() {
+    private fun getArticleByCategoryLatest() {
         viewModelScope.launch {
             _articleCategoryState.asDataState {
                 articleRepository.getArticleByCategoryLatest()
