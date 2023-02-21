@@ -6,10 +6,10 @@ import androidx.fragment.app.viewModels
 import com.erbe.nowinandroid.core.common.base.BaseFragment
 import com.erbe.nowinandroid.core.common.extension.launchAndCollectIn
 import com.erbe.nowinandroid.core.common.extension.process
-import com.erbe.nowinandroid.core.design.generateConstraintView
+import com.erbe.nowinandroid.core.design.generateLinearView
+import com.erbe.nowinandroid.feature.article.component.ArticleCategoryLatestView
+import com.erbe.nowinandroid.feature.article.component.ArticleLatestView
 import com.erbe.nowinandroid.feature.article.databinding.FragmentArticleBinding
-import com.erbe.nowinandroid.feature.article.home.view.ArticleCategoryLatestView
-import com.erbe.nowinandroid.feature.article.home.view.ArticleLatestView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,21 +21,26 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>(FragmentArticleBind
         super.onViewCreated(view, savedInstanceState)
 
         sectionArticle()
-        sectionCategoryArticle()
+        // sectionCategoryArticle()
     }
 
     private fun sectionArticle() {
         val articleLatestView = ArticleLatestView(requireContext())
-        generateConstraintView(binding.articleContainer, articleLatestView)
+        generateLinearView(binding.articleContainer, articleLatestView)
+        articleLatestView.setView(
+            "Latest",
+            onItemClick = { _, _ -> },
+            onSeeAllClick = { }
+        )
 
         articleViewModel.articleState.launchAndCollectIn(viewLifecycleOwner) { articleState ->
-            articleState.process { }
+            articleLatestView.setState(articleState)
         }
     }
 
     private fun sectionCategoryArticle() {
         val articleCategoryLatestView = ArticleCategoryLatestView(requireContext())
-        generateConstraintView(binding.articleContainer, articleCategoryLatestView)
+        generateLinearView(binding.articleContainer, articleCategoryLatestView)
 
         articleViewModel.articleCategoryState.launchAndCollectIn(viewLifecycleOwner) { articleCategoryState ->
             articleCategoryState.process { }

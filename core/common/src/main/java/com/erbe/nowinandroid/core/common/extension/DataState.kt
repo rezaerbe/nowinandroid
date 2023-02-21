@@ -2,6 +2,7 @@ package com.erbe.nowinandroid.core.common.extension
 
 import android.util.Log
 import android.view.View
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,7 +41,7 @@ fun <T> Flow<T>.asDataState(): Flow<DataState<T>> {
 fun <T> DataState<T>.state(
     viewLoading: View? = null,
     viewError: View? = null,
-    viewSuccess: View? = null
+    viewSuccess: List<View>? = null
 ) {
     viewLoading?.let { view ->
         view.isVisible = this is DataState.Loading
@@ -49,7 +50,9 @@ fun <T> DataState<T>.state(
         view.isVisible = this is DataState.Error
     }
     viewSuccess?.let { view ->
-        view.isVisible = this is DataState.Success
+        view.forEach { v ->
+            v.isInvisible = this !is DataState.Success
+        }
     }
 }
 

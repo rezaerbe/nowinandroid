@@ -1,4 +1,4 @@
-package com.erbe.nowinandroid.feature.article.home.view
+package com.erbe.nowinandroid.feature.article.component
 
 import android.content.Context
 import android.util.AttributeSet
@@ -13,5 +13,5 @@ class ArticleCategoryLatestView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     private val binding =
-        ViewArticleCategoryLatestBinding.inflate(LayoutInflater.from(context), this)
+        ViewArticleCategoryLatestBinding.inflate(LayoutInflater.from(context), this, true)
 }
