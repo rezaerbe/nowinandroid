@@ -3,9 +3,6 @@ package com.erbe.nowinandroid.core.design
 import android.view.View
 import android.view.ViewGroup.LayoutParams
 import android.widget.LinearLayout
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.view.children
 import androidx.core.view.updateLayoutParams
 
 fun generateLinearView(parent: LinearLayout, view: View) {
@@ -14,9 +11,11 @@ fun generateLinearView(parent: LinearLayout, view: View) {
 
     view.updateLayoutParams<LinearLayout.LayoutParams> {
         width = LayoutParams.MATCH_PARENT
+        height = LayoutParams.WRAP_CONTENT
     }
 }
 
+/*
 fun generateConstraintView(parent: ConstraintLayout, view: View) {
     val count = parent.childCount
 
@@ -25,6 +24,7 @@ fun generateConstraintView(parent: ConstraintLayout, view: View) {
 
     view.updateLayoutParams<ConstraintLayout.LayoutParams> {
         width = LayoutParams.MATCH_PARENT
+        height = LayoutParams.WRAP_CONTENT
     }
 
     val constraintSet = ConstraintSet()
@@ -51,4 +51,4 @@ fun generateConstraintView(parent: ConstraintLayout, view: View) {
     }
 
     constraintSet.applyTo(parent)
-}
+}*/

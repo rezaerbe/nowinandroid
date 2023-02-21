@@ -24,9 +24,13 @@ gradlePlugin {
             id = "nowinandroid.android.library"
             implementationClass = "LibraryConventionPlugin"
         }
-        register("androidLibraryView") {
-            id = "nowinandroid.android.library.view"
-            implementationClass = "LibraryViewConventionPlugin"
+        register("androidCore") {
+            id = "nowinandroid.android.core"
+            implementationClass = "CoreConventionPlugin"
+        }
+        register("androidDesign") {
+            id = "nowinandroid.android.design"
+            implementationClass = "DesignConventionPlugin"
         }
         register("androidFeature") {
             id = "nowinandroid.android.feature"

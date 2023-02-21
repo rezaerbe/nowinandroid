@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.erbe.nowinandroid.core.common.base.BaseFragment
 import com.erbe.nowinandroid.core.common.extension.launchAndCollectIn
-import com.erbe.nowinandroid.core.common.extension.process
 import com.erbe.nowinandroid.core.design.generateLinearView
 import com.erbe.nowinandroid.feature.article.component.ArticleCategoryLatestView
 import com.erbe.nowinandroid.feature.article.component.ArticleLatestView
@@ -42,8 +41,6 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>(FragmentArticleBind
         val articleCategoryLatestView = ArticleCategoryLatestView(requireContext())
         generateLinearView(binding.articleContainer, articleCategoryLatestView)
 
-        articleViewModel.articleCategoryState.launchAndCollectIn(viewLifecycleOwner) { articleCategoryState ->
-            articleCategoryState.process { }
-        }
+        articleViewModel.articleCategoryState.launchAndCollectIn(viewLifecycleOwner) { }
     }
 }

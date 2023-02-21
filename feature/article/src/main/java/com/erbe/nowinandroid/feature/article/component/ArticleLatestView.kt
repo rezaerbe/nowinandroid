@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.erbe.nowinandroid.core.common.extension.DataState
-import com.erbe.nowinandroid.core.common.extension.process
+import com.erbe.nowinandroid.core.common.extension.onError
+import com.erbe.nowinandroid.core.common.extension.onLoading
+import com.erbe.nowinandroid.core.common.extension.onSuccess
 import com.erbe.nowinandroid.core.common.extension.state
 import com.erbe.nowinandroid.data.article.data.model.ArticleContentTopic
 import com.erbe.nowinandroid.feature.article.adapter.ArticleLatestAdapter
@@ -45,14 +47,16 @@ class ArticleLatestView @JvmOverloads constructor(
             )
         )
 
-        articleState.process(
-            onError = { error ->
+        articleState
+            .onLoading {
+                // Do nothing
+            }
+            .onError { error ->
                 binding.textError.text = error?.message ?: "Error"
-            },
-            onSuccess = { data ->
+            }
+            .onSuccess { data ->
                 setData(data)
             }
-        )
     }
 
     private fun setData(data: List<ArticleContentTopic>) {

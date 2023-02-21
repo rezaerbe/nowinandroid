@@ -24,8 +24,8 @@ class SeeAllView @JvmOverloads constructor(
     fun onSeeAllClick(
         onClick: (View) -> Unit
     ) {
-        binding.textSeeAll.setOnClickListener(click { v ->
-            onClick(v)
+        binding.textSeeAll.setOnClickListener(click { view ->
+            onClick(view)
         })
     }
 }

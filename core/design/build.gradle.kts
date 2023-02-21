@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("nowinandroid.android.library.view")
+    id("nowinandroid.android.design")
 }
 
 android {
@@ -10,4 +10,9 @@ android {
     lint {
         disable.add("UnusedResources")
     }
+}
+
+dependencies {
+
+    implementation(libs.coil)
 }

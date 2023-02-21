@@ -1,5 +1,5 @@
 plugins {
-    id("nowinandroid.android.library.view")
+    id("nowinandroid.android.core")
 }
 
 android {

@@ -16,8 +16,9 @@
         android:id="@+id/recycler_view_article_latest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
         android:orientation="horizontal"
+        android:padding="2dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/see_all_article_latest"
         tools:listitem="@layout/item_article_latest" />
@@ -36,6 +37,7 @@
         android:id="@+id/text_error"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

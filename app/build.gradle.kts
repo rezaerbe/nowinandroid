@@ -1,8 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
 plugins {
-    id("nowinandroid.android.application")
     id("com.google.firebase.crashlytics")
+    id("nowinandroid.android.application")
 }
 
 android {
