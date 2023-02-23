@@ -16,6 +16,13 @@ retrofit = "2.9.0"
 okhttp = "4.10.0"
 chucker = "3.5.2"
 coil = "2.2.2"
+junit = "4.13.2"
+androidxArchCore = "2.1.0"
+androidxTestCore = "1.5.0"
+mockitoCore = "5.1.1"
+mockitoKotlin = "4.1.0"
+mockk = "1.13.4"
+kotlinCoroutineTest = "1.6.4"
 
 [libraries]
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -37,6 +44,16 @@ retrofit-converterMoshi = { module = "com.squareup.retrofit2:converter-moshi", v
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+
+junit = { module = "junit:junit", version.ref = "junit"}
+androidx-archCore = { module = "androidx.arch.core:core-testing", version.ref = "androidxArchCore" }
+androidx-testCore = { module = "androidx.test:core-ktx", version.ref = "androidxTestCore"}
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore"}
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin"}
+mockk = { module = "io.mockk:mockk", version.ref = "mockk"}
+kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutineTest" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "okhttp" }
+hilt-androidTesting = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
