@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.erbe.nowinandroid.core.common.extension.DataState
 import com.erbe.nowinandroid.core.common.extension.asDataState
 import com.erbe.nowinandroid.data.article.data.model.ArticleContentTopic
-import com.erbe.nowinandroid.data.article.data.model.ArticleTopicContent
 import com.erbe.nowinandroid.data.article.data.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,28 +21,27 @@ class ArticleViewModel @Inject constructor(
         MutableStateFlow<DataState<List<ArticleContentTopic>>>(DataState.Loading)
     val articleState = _articleState.asStateFlow()
 
-    private val _articleCategoryState =
+/*    private val _articleCategoryState =
         MutableStateFlow<DataState<List<ArticleTopicContent>>>(DataState.Loading)
-    val articleCategoryState = _articleCategoryState.asStateFlow()
+    val articleCategoryState = _articleCategoryState.asStateFlow()*/
 
     init {
         getArticleLatest()
-        getArticleByCategoryLatest()
+        // getArticleByCategoryLatest()
     }
 
-    private fun getArticleLatest() {
+    private fun getArticleLatest() =
         viewModelScope.launch {
             _articleState.asDataState {
                 articleRepository.getArticleLatest()
             }
         }
-    }
 
-    private fun getArticleByCategoryLatest() {
+/*    private fun getArticleByCategoryLatest() {
         viewModelScope.launch {
             _articleCategoryState.asDataState {
                 articleRepository.getArticleByCategoryLatest()
             }
         }
-    }
+    }*/
 }

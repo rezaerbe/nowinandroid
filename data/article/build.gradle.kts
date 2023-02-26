@@ -23,6 +23,8 @@ dependencies {
     testImplementation(libs.androidx.archCore)
     testImplementation(libs.kotlinx.coroutinesTest)
     testImplementation(libs.mockwebserver)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
     testImplementation(libs.hilt.androidTesting)
     kaptTest(libs.hilt.androidCompiler)
 }

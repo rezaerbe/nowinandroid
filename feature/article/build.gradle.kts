@@ -4,6 +4,10 @@ plugins {
 
 android {
     namespace = "com.erbe.nowinandroid.feature.article"
+
+    defaultConfig {
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
 }
 
 dependencies {
@@ -12,4 +16,10 @@ dependencies {
     implementation(project(":core:design"))
 
     implementation(project(":data:article"))
+
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.archCore)
+    testImplementation(libs.kotlinx.coroutinesTest)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
 }

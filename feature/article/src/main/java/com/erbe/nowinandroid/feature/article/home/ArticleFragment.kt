@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import com.erbe.nowinandroid.core.common.base.BaseFragment
 import com.erbe.nowinandroid.core.common.extension.launchAndCollectIn
 import com.erbe.nowinandroid.core.design.generateLinearView
-import com.erbe.nowinandroid.feature.article.component.ArticleCategoryLatestView
 import com.erbe.nowinandroid.feature.article.component.ArticleLatestView
 import com.erbe.nowinandroid.feature.article.databinding.FragmentArticleBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,10 +36,10 @@ class ArticleFragment : BaseFragment<FragmentArticleBinding>(FragmentArticleBind
         }
     }
 
-    private fun sectionCategoryArticle() {
+/*    private fun sectionCategoryArticle() {
         val articleCategoryLatestView = ArticleCategoryLatestView(requireContext())
         generateLinearView(binding.articleContainer, articleCategoryLatestView)
 
         articleViewModel.articleCategoryState.launchAndCollectIn(viewLifecycleOwner) { }
-    }
+    }*/
 }
